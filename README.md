@@ -59,9 +59,33 @@ webpack基础学习<br>
    举个🌰：<br>
    1. url-loader可以处理css中与url路径有关的文件
    2. sass-loader可以处理.scss相关的文件
- loader加载过程
+   loader加载过程：
+    图片占个位置<br>
 
-  [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVvlsIbopoHooqt3ZWJwYWNr5omT5YyF5aSE55CG55qE5paH5Lu25qih5Z2XXSAtLT4gQnvmmK_lkKbkuLpqc-aooeWdl31cblx0QiAtLT4gfOaYr3xDe-aYr-WQpuWMheWQq-mrmOe6p2pz6K-t5rOVfVxuICAgIEIgLS0-IHzlkKZ8Z3vmmK_lkKbphY3nva7kuoblr7nlupRsb2FkZXJ9XG5cdEMgLS0-fOaYr3wgRHvmmK_lkKbphY3nva7kuoZiYWJlbH1cblx0QyAtLT585ZCmfCBFW3dlYnBhY2vlpITnkIZdXG4gICAgRCAtLT4gfOaYr3xmW-iwg-eUqGxvYWRlcuWkhOeQhl1cbiAgICBEIC0tPiB85ZCmfOaKpemUmVxuICAgIGcgLS0-IHzmmK986LCD55SobG9hZGVy5aSE55CGXG4gICAgZyAtLT4gfOWQpnxIW-aKpemUmV1cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblx0QVvlsIbopoHooqt3ZWJwYWNr5omT5YyF5aSE55CG55qE5paH5Lu25qih5Z2XXSAtLT4gQnvmmK_lkKbkuLpqc-aooeWdl31cblx0QiAtLT4gfOaYr3xDe-aYr-WQpuWMheWQq-mrmOe6p2pz6K-t5rOVfVxuICAgIEIgLS0-IHzlkKZ8Z3vmmK_lkKbphY3nva7kuoblr7nlupRsb2FkZXJ9XG5cdEMgLS0-fOaYr3wgRHvmmK_lkKbphY3nva7kuoZiYWJlbH1cblx0QyAtLT585ZCmfCBFW3dlYnBhY2vlpITnkIZdXG4gICAgRCAtLT4gfOaYr3xmW-iwg-eUqGxvYWRlcuWkhOeQhl1cbiAgICBEIC0tPiB85ZCmfOaKpemUmVxuICAgIGcgLS0-IHzmmK986LCD55SobG9hZGVy5aSE55CGXG4gICAgZyAtLT4gfOWQpnxIW-aKpemUmV1cblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
+   ## 加载器的基本使用
+     1. 处理css文件
+        - 运行 ```` npm i style-loader css-loader -D ```` 命令，安装处理css文件的loader
+        - 在webpack.config.js的module ->rules数组中，添加loader规则如下
+         ````
+              module: {
+                rules: [{
+                 test: /\.css$/, use: ['style-loader', 'css-loader']
+                }]
+              }
+         ````
+          其中，test表示你要匹配的文件类型，use表示对应要调用的loader
+          tip：
+              * use数组指定的loader顺序是固定的
+              * 多个loader的调用顺序是: 从后往前调用
+     2. 打包less文件
+       - 运行 ```` npm i less-loader less -D ```` 命令，安装处理css文件的loader
+       - 在webpack.config.js的module ->rules数组中，添加loader规则如下
+        ```` 
+         test: /\.less$/, use: ['style-loader', 'css-loader','less-loader']
+        ````
+          
+    
+
 
 
 

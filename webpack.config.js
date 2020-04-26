@@ -12,5 +12,11 @@ module.exports = {
     path: path.join(__dirname, './dist'), //输出文件的存放路径
     filename: 'bundle.js'   //输出文件的名称
   },
-  plugins: [htmlPlugin] //plugins数组是用到的插件列表
+  plugins: [htmlPlugin], //plugins数组是用到的插件列表
+  module: {
+    rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }
+    ]
+  }
 }
