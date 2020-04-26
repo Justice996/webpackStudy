@@ -66,13 +66,13 @@ webpack基础学习<br>
      1. 处理css文件
         - 运行 ```` npm i style-loader css-loader -D ```` 命令，安装处理css文件的loader
         - 在webpack.config.js的module ->rules数组中，添加loader规则如下
-         ````
+        ````
               module: {
                 rules: [{
                  test: /\.css$/, use: ['style-loader', 'css-loader']
                 }]
               }
-         ````
+        ````
           其中，test表示你要匹配的文件类型，use表示对应要调用的loader
           tip：
               * use数组指定的loader顺序是固定的
@@ -83,7 +83,9 @@ webpack基础学习<br>
         ```` 
          test: /\.less$/, use: ['style-loader', 'css-loader','less-loader']
         ````
-          
+     3.    打包scss文件 基本与上面一致
+        - 安装 sass-loader node-sass
+        - 配置
     
 
 
