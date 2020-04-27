@@ -86,8 +86,20 @@ webpack基础学习<br>
      3.    打包scss文件 基本与上面一致
         - 安装 sass-loader node-sass
         - 配置
-    
-
+     4. 配置postcss自动添加css的兼容前缀
+        - 安装postcss-loader autoprefixer 
+        - 初始化：在根目录下创建postcss.config.js
+             ````
+             const autoprefixer = require('autofixer') //导入自动添加前缀的插件
+             module.exports = {
+               plugins: [autoprefixer] //挂载插件
+             }
+              ````
+        - 在webpack.config.js的module ->rules数组中，添加loader规则如下
+        ````
+        test: /\.css$/, use: ['style-loader', 'css-loader','postcss-loader']
+        ````
+        
 
 
 
