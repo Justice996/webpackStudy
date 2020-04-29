@@ -99,6 +99,30 @@ webpack基础学习<br>
         ````
         test: /\.css$/, use: ['style-loader', 'css-loader','postcss-loader']
         ````
+     5. 打包图片和字体文件
+       - 安装 url-loader file-loader 
+       - 配置规则
+       ````
+        { test: /\.jpg|png|gif|bmp|ttf|eot|svg|woff2|woff$/, use: 'url-loader?limit=30287' }
+       ````
+        use的参数可以为数组或者字符串，其中？之后是loader的参数项。
+        limit用来指定图片大小，单位是字节，只有小于limit大小的图片，才会被转为base64的图片
+      
+      6. 打包js中的高级语法
+       - 安装babel转换器相关的包 babel-loader @babel/core @babel/runtime
+       - 安装语法插件相关的包 npm i @babel/preset-env @babel/plugin-transform-runtime @babel/plugin-proposal-class-properties
+       - 在项目根目录，新建babel 配置文件 babel.config.js并初始化配置如下：
+          ```` 
+           module.exports ={
+             presets : ['@babel/preset-env'],
+             plugins: ['@babel/plugin-transform-runtime','@babel/plugin-proposal-class-properties']
+           }
+          ````
+       - 在webpack配置文件中，添加loader规则
+           ````
+             //exclude为排除项，表示babel-loader不需要处理node_modules中的js文件
+             {test:/\.js$/,use:'babel-loader',exclude:/node_modules/}
+           ```` 
         
 
 

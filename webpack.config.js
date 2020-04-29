@@ -17,7 +17,8 @@ module.exports = {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.jpg|png|gif|bmp|ttf|eot|svg|woff2|woff$/, use: 'url-loader?limit=30287' }
     ]
   }
 }
