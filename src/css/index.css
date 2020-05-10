@@ -8,5 +8,5 @@ li{
     width: 580px;
     height: 340px;
     background-color: pink;
-    background: url(../img/2.jpg);
+    background: url('../img/2.jpg');
 }
